@@ -4,7 +4,9 @@ import json
 import numpy as np
 
 from koide_soddy.leptons import (
+    M_E_MEV, M_MU_MEV, M_TAU_MEV,
     SUM_LEPTON_MEV, F_squared_central, F_uncertainty_from_leptons,
+    F_from_soddy, F_from_diff,
 )
 from koide_soddy.running import run_ms_to_scale
 
@@ -96,6 +98,14 @@ def input_sensitivity(output_path: str = "results/input_sensitivity.json") -> di
 
     residual = F2 - ms_mu
 
+    # F (algebraic, e1 - sqrt(p2)) vs F (geometric, e1 - 2*sqrt(e2))
+    # These are equal when Koide holds exactly; at PDG values they differ
+    # at one part in 10^5 (because Q - 2/3 ~ -2.2e-6).
+    F_alg = F_from_diff(M_E_MEV, M_MU_MEV, M_TAU_MEV)
+    F_geo = F_from_soddy(M_E_MEV, M_MU_MEV, M_TAU_MEV)
+    diff_F = F_alg - F_geo
+    diff_F2 = F_alg ** 2 - F_geo ** 2
+
     result = {
         "F_squared_mev": round(F2, 4),
         "ms_at_mu_mev": round(ms_mu, 4),
@@ -108,6 +118,13 @@ def input_sensitivity(output_path: str = "results/input_sensitivity.json") -> di
             "quark_fraction_pct": round(100 * sigma_ms_mu**2 / sigma_total**2, 2),
         },
         "residual_in_sigma": round(residual / sigma_total, 4),
+        "F_exact_vs_approximate": {
+            "F_alg": round(F_alg, 6),
+            "F_geo": round(F_geo, 6),
+            "diff_F": round(diff_F, 6),
+            "diff_F2_mev": round(diff_F2, 6),
+            "exceeds_lepton_budget": bool(abs(diff_F2) > sigma_F2_lepton),
+        },
     }
 
     with open(output_path, "w") as f:

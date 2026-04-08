@@ -1,63 +1,21 @@
 {
   "n_samples": 100000,
   "n_valid_triples": 25485,
-  "overall_hits": 207,
-  "overall_hit_fraction": 0.008122,
+  "overall_hits": 147,
+  "overall_hit_fraction": 0.005768,
   "overall_hit_fraction_95ci": [
-    0.007057,
-    0.009302
+    0.004875,
+    0.006776
   ],
   "per_quark_hits": {
     "u": 0,
     "d": 0,
     "s": 147,
-    "c": 45,
-    "b": 15
+    "c": 0,
+    "b": 0
   },
-  "per_power_hits": {
-    "1": 0,
-    "2": 147,
-    "3": 60
-  },
-  "joint_hit_table": [
-    [
-      0,
-      0,
-      0
-    ],
-    [
-      0,
-      0,
-      0
-    ],
-    [
-      0,
-      147,
-      0
-    ],
-    [
-      0,
-      0,
-      45
-    ],
-    [
-      0,
-      0,
-      15
-    ]
-  ],
-  "joint_hit_table_rows": [
-    "u",
-    "d",
-    "s",
-    "c",
-    "b"
-  ],
-  "joint_hit_table_cols": [
-    "1",
-    "2",
-    "3"
-  ],
-  "runtime_seconds": 1.8,
+  "power_n": 2,
+  "note": "Restricted to n=2 for dimensional consistency. F has units MeV^{1/2}, so only F^2 has mass dimension one and is commensurate with a quark mass. F^n for n != 2 is not unit-invariant and is excluded. See manuscript sections 3 and 5.6.",
+  "runtime_seconds": 1.7,
   "seed": 42
 }

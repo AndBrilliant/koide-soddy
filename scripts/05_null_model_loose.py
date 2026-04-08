@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-"""Loose null model: does F^n match ANY quark mass, for any small power?
+"""Loose null model: does F^2 match ANY quark mass?
 
-Tests F^n for n in {1,2,3} against {u,d,s,c,b} at the natural scale.
+Tests F^2 against {u,d,s,c,b} at the natural scale.
+Restricted to n=2 for dimensional consistency: F = k_4^- has units of
+MeV^{1/2}, so only F^2 has mass dimension one and is commensurate with
+a quark mass.  F^n for n != 2 is not unit-invariant and is excluded.
+See manuscript sections 3 and 5.6.
+
 Restricts to mu* > 1 GeV where perturbative QCD is valid.
 """
 
@@ -32,7 +37,12 @@ M_C_MC = 1273.0;  DM_C = 4.6
 M_B_MB = 4183.0;  DM_B = 7.0
 
 QUARKS = ["u", "d", "s", "c", "b"]
-POWERS = [1, 2, 3]
+# Restricted to n=2 for dimensional consistency.
+# F = k_4^- has units of MeV^{1/2}, so only F^2 has mass dimension one
+# and is commensurate with a quark mass. F^n for n != 2 is not
+# unit-invariant and is excluded. See manuscript §3 (definition) and
+# §5.6 (loose null-model test).
+POWER = 2
 
 print(f"Loose null model: sampling {N_SAMPLES} Koide triples...", flush=True)
 t0 = time.time()
@@ -93,31 +103,25 @@ os.close(old_stderr)
 
 print(f"  Caches built in {time.time()-t0:.1f}s", flush=True)
 
-# Step 3: Test all (quark, power) combinations
+# Step 3: Test F^2 against each quark
 per_quark_hits = {q: 0 for q in QUARKS}
-per_power_hits = {str(n): 0 for n in POWERS}
-joint_hits = np.zeros((len(QUARKS), len(POWERS)), dtype=int)
 overall_hits = 0
 
 for i in range(n_testable):
     log_mu = np.log(mu_test[i])
-    F = F_values[i]
+    F2 = F_values[i] ** POWER
     hit_this_triple = False
 
-    for qi, q in enumerate(QUARKS):
+    for q in QUARKS:
         m_interp, s_interp = quark_cache[q]
         mq = float(m_interp(log_mu))
         sigma_q = float(s_interp(log_mu))
         if sigma_q <= 0:
             continue
 
-        for ni, n in enumerate(POWERS):
-            Fn = F ** n
-            if abs(Fn - mq) < sigma_q:
-                joint_hits[qi, ni] += 1
-                per_quark_hits[q] += 1
-                per_power_hits[str(n)] += 1
-                hit_this_triple = True
+        if abs(F2 - mq) < sigma_q:
+            per_quark_hits[q] += 1
+            hit_this_triple = True
 
     if hit_this_triple:
         overall_hits += 1
@@ -134,10 +138,13 @@ result = {
     "overall_hit_fraction": round(overall_frac, 6),
     "overall_hit_fraction_95ci": [round(ci_lo, 6), round(ci_hi, 6)],
     "per_quark_hits": {q: int(per_quark_hits[q]) for q in QUARKS},
-    "per_power_hits": {str(n): int(per_power_hits[str(n)]) for n in POWERS},
-    "joint_hit_table": joint_hits.tolist(),
-    "joint_hit_table_rows": QUARKS,
-    "joint_hit_table_cols": [str(n) for n in POWERS],
+    "power_n": POWER,
+    "note": (
+        "Restricted to n=2 for dimensional consistency. "
+        "F has units MeV^{1/2}, so only F^2 has mass dimension one "
+        "and is commensurate with a quark mass. F^n for n != 2 is not "
+        "unit-invariant and is excluded. See manuscript sections 3 and 5.6."
+    ),
     "runtime_seconds": round(elapsed, 1),
     "seed": SEED,
 }
@@ -146,26 +153,16 @@ with open("results/null_loose.json", "w") as f:
     json.dump(result, f, indent=2)
 
 print(f"\n{'='*60}", flush=True)
-print(f"LOOSE NULL RESULT", flush=True)
+print(f"LOOSE NULL RESULT (n={POWER} only)", flush=True)
 print(f"{'='*60}", flush=True)
 print(f"N testable:         {n_testable}")
 print(f"Overall hits:       {overall_hits}")
 print(f"Overall hit frac:   {overall_frac:.4f} ({100*overall_frac:.2f}%)")
 print(f"95% CI:             [{ci_lo:.6f}, {ci_hi:.6f}]")
 print()
-print("Per-quark hits:")
+print("Per-quark hits (F^2 only):")
 for q in QUARKS:
     frac = per_quark_hits[q] / n_testable if n_testable > 0 else 0
     print(f"  {q}: {per_quark_hits[q]:>6d} ({100*frac:.2f}%)")
-print()
-print("Per-power hits:")
-for n in POWERS:
-    frac = per_power_hits[str(n)] / n_testable if n_testable > 0 else 0
-    print(f"  F^{n}: {per_power_hits[str(n)]:>6d} ({100*frac:.2f}%)")
-print()
-print("Joint hit table (rows=quarks, cols=powers):")
-print(f"       {'F^1':>8s} {'F^2':>8s} {'F^3':>8s}")
-for qi, q in enumerate(QUARKS):
-    print(f"  {q:>3s}: {joint_hits[qi,0]:>8d} {joint_hits[qi,1]:>8d} {joint_hits[qi,2]:>8d}")
 print(f"\nRuntime: {elapsed:.1f}s")
 print(f"Output: results/null_loose.json")

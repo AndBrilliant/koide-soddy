@@ -1,0 +1,30 @@
+{
+  "n_samples": 100000,
+  "n_valid_triples": 25485,
+  "n_excluded_below_mu_min": 74515,
+  "n_excluded_above_mu_max": 0,
+  "mu_min_mev": 1000.0,
+  "mu_max_mev": 50000.0,
+  "n_hits": 147,
+  "hit_fraction": 0.005768,
+  "hit_fraction_95ci": [
+    0.004875,
+    0.006776
+  ],
+  "F2_distribution_summary": {
+    "mean": 202.0868,
+    "median": 161.8339,
+    "std": 131.2453,
+    "p05": 56.4947,
+    "p95": 465.1808
+  },
+  "ms_at_natural_scale_distribution_summary": {
+    "mean": 86.8605,
+    "median": 83.3148,
+    "std": 14.6627,
+    "p05": 69.3777,
+    "p95": 116.4139
+  },
+  "runtime_seconds": 0.5,
+  "seed": 42
+}

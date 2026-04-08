@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "koide-soddy"
+version = "0.1.0"
+description = "Test whether the Koide–Soddy lepton–quark mass relation is structurally meaningful"
+requires-python = ">=3.11"
+dependencies = [
+    "rundec",
+    "numpy",
+    "scipy",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,63 @@
+{
+  "n_samples": 100000,
+  "n_valid_triples": 25485,
+  "overall_hits": 207,
+  "overall_hit_fraction": 0.008122,
+  "overall_hit_fraction_95ci": [
+    0.007057,
+    0.009302
+  ],
+  "per_quark_hits": {
+    "u": 0,
+    "d": 0,
+    "s": 147,
+    "c": 45,
+    "b": 15
+  },
+  "per_power_hits": {
+    "1": 0,
+    "2": 147,
+    "3": 60
+  },
+  "joint_hit_table": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      147,
+      0
+    ],
+    [
+      0,
+      0,
+      45
+    ],
+    [
+      0,
+      0,
+      15
+    ]
+  ],
+  "joint_hit_table_rows": [
+    "u",
+    "d",
+    "s",
+    "c",
+    "b"
+  ],
+  "joint_hit_table_cols": [
+    "1",
+    "2",
+    "3"
+  ],
+  "runtime_seconds": 1.8,
+  "seed": 42
+}

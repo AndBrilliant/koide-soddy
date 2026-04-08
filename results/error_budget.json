@@ -1,0 +1,35 @@
+{
+  "central": {
+    "ms_mu_star_mev": 95.132,
+    "mu_star_mev": 1883.0994,
+    "sigma_total_phase1_mev": 0.814
+  },
+  "components": [
+    {
+      "source": "lattice_ms_input",
+      "shift_up_mev": 0.814,
+      "shift_dn_mev": -0.814,
+      "sigma_contribution_mev": 0.814
+    },
+    {
+      "source": "alpha_s",
+      "shift_up_mev": 0.0525,
+      "shift_dn_mev": -0.05,
+      "sigma_contribution_mev": 0.0512
+    },
+    {
+      "source": "mc_threshold",
+      "shift_up_mev": 0.0,
+      "shift_dn_mev": 0.0,
+      "sigma_contribution_mev": 0.0
+    },
+    {
+      "source": "loop_truncation",
+      "shift_mev": 0.039,
+      "sigma_contribution_mev": 0.039
+    }
+  ],
+  "quadrature_sum_mev": 0.8165,
+  "matches_phase1_total": true,
+  "note": "Phase 1 only varied m_s(2 GeV); this decomposition adds alpha_s, m_c threshold, and truncation components."
+}

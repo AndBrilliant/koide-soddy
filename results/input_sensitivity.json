@@ -1,0 +1,20 @@
+{
+  "F_squared_mev": 95.1134,
+  "ms_at_mu_mev": 95.132,
+  "residual_mev": -0.0187,
+  "error_budget": {
+    "sigma_F2_lepton_mev": 0.010272,
+    "sigma_ms_running_mev": 0.814,
+    "sigma_total_mev": 0.814,
+    "lepton_fraction_pct": 0.02,
+    "quark_fraction_pct": 99.98
+  },
+  "residual_in_sigma": -0.023,
+  "F_exact_vs_approximate": {
+    "F_alg": 9.752823,
+    "F_geo": 9.752607,
+    "diff_F": 0.000215,
+    "diff_F2_mev": 0.004196,
+    "exceeds_lepton_budget": false
+  }
+}

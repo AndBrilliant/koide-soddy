@@ -1,0 +1,16 @@
+year,edition,source,ms_central_mev,uncertainty_mev,notes
+2012,PDG 2012,Review (Eq. 3),93.5,2.5,Lattice average from review text
+2013,FLAG 2013,Nf=2+1+1 (1310.8555),N/A,N/A,Nf=2+1+1 average not yet available; Nf=2+1 was 92.0(2.1)
+2014,PDG 2014,Review (Eq. 3),93.5,2.5,Same lattice inputs as 2012
+2016,FLAG 2016,Nf=2+1+1 Table (1607.00299),93.9,1.1,"First FLAG Nf=2+1+1 average; ETM 14 + HPQCD 14A"
+2016,PDG 2016,Review (Eq. 3),93.8,2.4,"Combined lattice; listing value 93.5 +/- 2 (asymmetric)"
+2018,PDG 2018,Review (Eq. 66.3),93.8,2.4,Same lattice average as 2016; listing value 93.5 +/- 2
+2019,FLAG 2019,Nf=2+1+1 Table 8 (1902.08191),93.44,0.68,"Added FNAL/MILC 17, ETM 14, HPQCD 14A"
+2020,PDG 2020,Review (Eq. 59.4),92.9,0.7,Review lattice average; FLAG Nf=2+1+1 quoted as 93.44(68)
+2021,FLAG 2021,Nf=2+1+1 Table 10 (2111.09849),93.44,0.68,Unchanged inputs from FLAG 2019 for Nf=2+1+1 average
+2021,FLAG 2021,Nf=2+1+1 in-text (2111.09849),93.40,0.57,"In-text average before Sec. 2.3 error inflation; added ETM 21A"
+2022,PDG 2022,Review (Eq. 60.5),93.1,0.6,Review lattice average; FLAG Nf=2+1+1 quoted as 93.40(57)
+2024,FLAG 2024,Nf=2+1+1 Table 11 (2411.04268),93.44,0.68,Summary table with Sec. 2.3 error inflation
+2024,FLAG 2024,Nf=2+1+1 in-text Eq. 34 (2411.04268),93.46,0.58,In-text average before error inflation
+2024,PDG 2024,Review (Eq. 60.5),92.74,0.54,Review lattice average; differs from FLAG due to different averaging
+2024,PDG 2024,Particle listings,93.5,0.8,"Summary table 90% CL; NOT a FLAG value, combines non-lattice inputs"

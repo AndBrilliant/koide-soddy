@@ -82,27 +82,24 @@ def fig_null_loose_breakdown(loose_json: str = "results/null_loose.json",
     with open(loose_json) as f:
         data = json.load(f)
 
-    quarks = data["joint_hit_table_rows"]
-    powers = data["joint_hit_table_cols"]
-    joint = np.array(data["joint_hit_table"])
+    quarks = list(data["per_quark_hits"].keys())
+    hits = [data["per_quark_hits"][q] for q in quarks]
     n_test = data["n_valid_triples"]
+    power_n = data.get("power_n", 2)
 
     # Convert to fractions (%)
-    joint_pct = 100.0 * joint / n_test
+    hit_pct = [100.0 * h / n_test for h in hits]
 
     fig, ax = plt.subplots(figsize=(8, 5))
     x = np.arange(len(quarks))
-    width = 0.25
-
-    for ni, n_label in enumerate(powers):
-        ax.bar(x + ni * width, joint_pct[:, ni], width,
-               label=rf'$\mathcal{{F}}^{{{n_label}}}$', alpha=0.8)
+    ax.bar(x, hit_pct, 0.5,
+           label=rf'$\mathcal{{F}}^{{{power_n}}}$', alpha=0.8)
 
     ax.set_xlabel('Quark', fontsize=12)
     ax.set_ylabel('Hit rate (%)', fontsize=12)
-    ax.set_title(f'Loose null: per-(quark, power) hit rates ({n_test:,} triples)',
+    ax.set_title(rf'Loose null: per-quark $\mathcal{{F}}^{{{power_n}}}$ hit rates ({n_test:,} triples)',
                  fontsize=13)
-    ax.set_xticks(x + width)
+    ax.set_xticks(x)
     ax.set_xticklabels(quarks, fontsize=11)
     ax.legend(fontsize=10)
     ax.set_ylim(bottom=0)

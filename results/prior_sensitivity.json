@@ -3,48 +3,48 @@
   "priors": {
     "A_baseline": {
       "n_valid": 25485,
-      "n_hits": 147,
-      "hit_fraction": 0.005768,
+      "n_hits": 121,
+      "hit_fraction": 0.004748,
       "ci_95": [
-        0.004875,
-        0.006776
+        0.003941,
+        0.00567
       ],
       "description": "Phase 1 baseline: m3 log-U[1, 10^4], ratio log-U[10^-3, 10^-1]"
     },
     "B_wider_range": {
       "n_valid": 28302,
-      "n_hits": 106,
-      "hit_fraction": 0.003745,
+      "n_hits": 91,
+      "hit_fraction": 0.003215,
       "ci_95": [
-        0.003067,
-        0.004528
+        0.00259,
+        0.003946
       ],
       "description": "Wider m3: log-U[10^-1, 10^5], same ratio"
     },
     "C_smaller_ratio": {
       "n_valid": 25358,
-      "n_hits": 142,
-      "hit_fraction": 0.0056,
+      "n_hits": 109,
+      "hit_fraction": 0.004298,
       "ci_95": [
-        0.004719,
-        0.006597
+        0.003531,
+        0.005183
       ],
       "description": "More hierarchical: m3 log-U[1, 10^4], ratio log-U[10^-4, 10^-2]"
     },
     "D_linear": {
       "n_valid": 90493,
-      "n_hits": 238,
-      "hit_fraction": 0.00263,
+      "n_hits": 211,
+      "hit_fraction": 0.002332,
       "ci_95": [
-        0.002307,
-        0.002986
+        0.002028,
+        0.002668
       ],
       "description": "Linear-uniform stress test: m3 U[10, 10^4], ratio U[10^-3, 10^-1]"
     }
   },
   "summary": {
-    "min_hit_fraction": 0.00263,
-    "max_hit_fraction": 0.005768,
-    "fold_variation": 2.19
+    "min_hit_fraction": 0.002332,
+    "max_hit_fraction": 0.004748,
+    "fold_variation": 2.04
   }
 }

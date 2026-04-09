@@ -32,7 +32,7 @@ MU_MAX_MEV = 50_000.0
 # Quark inputs at reference scales (MeV)
 M_U_2GEV = 2.16;  DM_U = 0.07
 M_D_2GEV = 4.70;  DM_D = 0.07
-M_S_2GEV = 93.5;  DM_S = 0.8
+M_S_2GEV = 93.44;  DM_S = 0.68  # FLAG 2024 Table 11 Nf=2+1+1 (arXiv:2411.04268)
 M_C_MC = 1273.0;  DM_C = 4.6
 M_B_MB = 4183.0;  DM_B = 7.0
 

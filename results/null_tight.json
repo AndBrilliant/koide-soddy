@@ -5,11 +5,11 @@
   "n_excluded_above_mu_max": 0,
   "mu_min_mev": 1000.0,
   "mu_max_mev": 50000.0,
-  "n_hits": 147,
-  "hit_fraction": 0.005768,
+  "n_hits": 121,
+  "hit_fraction": 0.004748,
   "hit_fraction_95ci": [
-    0.004875,
-    0.006776
+    0.003941,
+    0.00567
   ],
   "F2_distribution_summary": {
     "mean": 202.0868,
@@ -19,11 +19,11 @@
     "p95": 465.1808
   },
   "ms_at_natural_scale_distribution_summary": {
-    "mean": 86.8605,
-    "median": 83.3148,
-    "std": 14.6627,
-    "p05": 69.3777,
-    "p95": 116.4139
+    "mean": 86.8048,
+    "median": 83.2613,
+    "std": 14.6533,
+    "p05": 69.3332,
+    "p95": 116.3392
   },
   "runtime_seconds": 0.5,
   "seed": 42

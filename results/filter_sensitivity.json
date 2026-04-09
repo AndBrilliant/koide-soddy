@@ -3,32 +3,32 @@
     {
       "mu_min_mev": 700.0,
       "n_valid": 29411,
-      "n_hits": 147,
-      "hit_fraction": 0.004998,
+      "n_hits": 121,
+      "hit_fraction": 0.004114,
       "ci_95": [
-        0.004224,
-        0.005872
+        0.003415,
+        0.004914
       ],
       "note": "below 1 GeV; running extrapolated"
     },
     {
       "mu_min_mev": 1000.0,
       "n_valid": 25485,
-      "n_hits": 147,
-      "hit_fraction": 0.005768,
+      "n_hits": 121,
+      "hit_fraction": 0.004748,
       "ci_95": [
-        0.004875,
-        0.006776
+        0.003941,
+        0.00567
       ]
     },
     {
       "mu_min_mev": 1500.0,
       "n_valid": 21036,
-      "n_hits": 147,
-      "hit_fraction": 0.006988,
+      "n_hits": 121,
+      "hit_fraction": 0.005752,
       "ci_95": [
-        0.005907,
-        0.008208
+        0.004775,
+        0.006869
       ]
     },
     {

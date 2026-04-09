@@ -27,8 +27,8 @@ MU_MIN_MEV = 1000.0
 MU_MAX_MEV = 50_000.0
 
 # Quark inputs
-M_S_2GEV = 93.5
-DM_S_2GEV = 0.8
+M_S_2GEV = 93.44  # FLAG 2024 Table 11, Nf=2+1+1 (arXiv:2411.04268)
+DM_S_2GEV = 0.68  # FLAG 2024 Table 11 uncertainty
 
 print(f"Tight null model: sampling {N_SAMPLES} Koide triples...", flush=True)
 t0 = time.time()

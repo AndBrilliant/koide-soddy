@@ -13,8 +13,8 @@ from koide_soddy.null_model import (
 )
 from koide_soddy.running import run_ms_to_scale
 
-M_S_2GEV = 93.5
-DM_S_2GEV = 0.8
+M_S_2GEV = 93.44  # FLAG 2024 Table 11, Nf=2+1+1, MSbar at 2 GeV (arXiv:2411.04268)
+DM_S_2GEV = 0.68  # FLAG 2024 Table 11 uncertainty
 MU_MIN_MEV = 1000.0
 MU_MAX_MEV = 50_000.0
 

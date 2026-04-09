@@ -9,8 +9,8 @@ from koide_soddy.leptons import (
 from koide_soddy.running import run_ms_to_scale
 
 # Quark mass inputs
-M_S_2GEV = 93.5   # MeV, FLAG 2024
-DM_S_2GEV = 0.8   # MeV, FLAG 2024
+M_S_2GEV = 93.44  # MeV, FLAG 2024 Table 11 Nf=2+1+1 (arXiv:2411.04268)
+DM_S_2GEV = 0.68  # MeV, FLAG 2024 Table 11 uncertainty
 
 print("=" * 60)
 print("CENTRAL CLAIM VERIFICATION")

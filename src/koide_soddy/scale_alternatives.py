@@ -10,8 +10,8 @@ from koide_soddy.leptons import (
 )
 from koide_soddy.running import run_ms_to_scale
 
-M_S_2GEV = 93.5
-DM_S_2GEV = 0.8
+M_S_2GEV = 93.44  # FLAG 2024 Table 11, Nf=2+1+1, MSbar at 2 GeV (arXiv:2411.04268)
+DM_S_2GEV = 0.68  # FLAG 2024 Table 11 uncertainty
 
 # Minimum scale for reliable perturbative running (MeV)
 PERTURBATIVE_MIN = 700.0

@@ -8,21 +8,21 @@ This codebase exists to test whether an empirical observation about the Koide le
 pip install -e ".[dev]"
 ```
 
-Requires Python 3.11+ and `rundec` (installed automatically). Use `python3.13` if your default Python doesn't have rundec.
+Requires Python 3.9+ and `rundec` (installed automatically).
 
 ## Run
 
 ```bash
 # Run tests first
-python3.13 -m pytest tests/ -v
+python3 -m pytest tests/ -v
 
 # Run all scripts in order
-python3.13 scripts/01_verify_central_claim.py
-python3.13 scripts/02_scale_sensitivity.py
-python3.13 scripts/03_input_sensitivity.py
-python3.13 scripts/04_null_model_tight.py 2>/dev/null
-python3.13 scripts/05_null_model_loose.py 2>/dev/null
-python3.13 scripts/06_make_figures.py
+python3 scripts/01_verify_central_claim.py
+python3 scripts/02_scale_sensitivity.py
+python3 scripts/03_input_sensitivity.py
+python3 scripts/04_null_model_tight.py 2>/dev/null
+python3 scripts/05_null_model_loose.py 2>/dev/null
+python3 scripts/06_make_figures.py
 ```
 
 The `2>/dev/null` suppresses verbose CRunDec warnings at low scales (these are harmless).
@@ -34,7 +34,7 @@ The `2>/dev/null` suppresses verbose CRunDec warnings at low scales (these are h
 | `results/scale_sensitivity.json` | m_s(mu) vs mu, with 1-sigma and 2-sigma windows |
 | `results/input_sensitivity.json` | Full error budget on F^2 - m_s |
 | `results/null_tight.json` | **Headline result**: hit fraction for F^2 = m_s(mu*) |
-| `results/null_loose.json` | Data-dredging check: any F^n matching any quark |
+| `results/null_loose.json` | Data-dredging check: F^2 against all five quarks (n=2 only; see §5.6) |
 | `results/null_tight_residuals.npy` | Raw residuals for histogram |
 
 ## Figures
@@ -57,4 +57,4 @@ The `2>/dev/null` suppresses verbose CRunDec warnings at low scales (these are h
 - Null model uses 100,000 Koide triples
 - Perturbative regime: only triples with mu* in [1, 50] GeV are tested (25.5% of total)
 - Runtime: < 5 seconds total on Apple M-series
-- Libraries: rundec 0.6, numpy, scipy, matplotlib, Python 3.13
+- Libraries: rundec 0.7, numpy, scipy, matplotlib, Python 3.9+
